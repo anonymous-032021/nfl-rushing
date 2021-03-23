@@ -26,7 +26,8 @@ the smallest way seemed reasonable instead of overbuilding.
 	<div class="container">
 		<div class="row">
 			<div class="col">
-					<input type="text" id='playersearch' placeholder="Player Search" onkeyup="playerSearchChange()">
+				<input type="text" id='playersearch' placeholder="Player Search" onkeyup="playerSearchChange()">
+				<button type="button" class="btn btn-primary" onclick="downloadcsv()">Download CSV</Button>
 			</div>
 		</div>
 		<div id="example-table"></div>
@@ -67,6 +68,10 @@ the smallest way seemed reasonable instead of overbuilding.
 			const _value = $("#playersearch").val();
 			
 			table.setFilter( "Player", "like", _value );
+		};
+
+		const downloadcsv = function( ){
+			table.download( "csv", "nfl-rushing-export.csv" );
 		};
 	</script>
   </body>
