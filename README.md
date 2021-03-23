@@ -56,7 +56,7 @@ If you have any questions regarding requirements, do not hesitate to email your 
 ### Installation and running this solution
  * Clone this repository ( `git clone https://github.com/anonymous-032021/nfl-rushing.git` )
  * Build the docker image ( `cd nfl-rushing && docker build -t anonymous-032021/nfl-rushing .` )
- * Run the docker image that you just built ( `docker run --name nfl-testing -p 8080:8080 -d anonymous-032021/nfl-rushing` ).
+ * Run the docker image that you just built ( `docker run --name nfl-rushing -p 8080:8080 -d anonymous-032021/nfl-rushing` ).
  * Take a look at the interface at http://localhost:8080/
 
 ### Notes for reviewer
