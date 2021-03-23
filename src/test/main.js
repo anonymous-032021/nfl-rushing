@@ -42,9 +42,18 @@ describe( "Main", function( ){
 				if( err ){ return cb( err ); }
 				assert.equal( result.status, 200 );
 				
-				assert.ok( Array.isArray( result.body ) );
-				assert.ok( result.body.length > 1 );
+				assert.ok( Array.isArray( result.body.data ) );
+				assert.ok( result.body.data.length > 1 );
 				return cb( null );
 			} );
 	} );
+
+	/*
+	Would normally add in a generator for the tests using faker.js or similar
+	and run some tests around sorting / filtering.
+
+	Also would do some tests with frontend framework at this point too, since
+	testing the UI can be done programmatically. This is my way of saying
+	that if it was anything more than an interview request I would do that.
+	*/
 } );

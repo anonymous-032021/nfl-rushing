@@ -99,6 +99,8 @@ const paginationSize = 10;
 module.exports = {
 	data: ( opts, cb ) => {
 
+		if( !opts.page ){ opts.page = 1; }
+
 		// Catch the race condition from the async
 		// db population.. absolutely a solution to
 		// a problem that shouldn't exist if the purpose
