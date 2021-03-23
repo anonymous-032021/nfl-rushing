@@ -54,4 +54,12 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-... TODO
+ * Clone this repository ( `git clone https://github.com/anonymous-032021/nfl-rushing.git` )
+ * Build the docker image ( `cd nfl-rushing && docker build -t anonymous-032021/nfl-rushing .` )
+ * Run the docker image that you just built ( `docker run --name nfl-testing -p 8080:8080 -d anonymous-032021/nfl-rushing` ).
+
+### Notes for reviewer
+ * MVP solution was completed.
+ * A larger solution would have seen a bunch of things such as [joi validation](https://github.com/hapijs/joi), [elasticsearch](http://elastic.co/), a separate pre-processing script ( as opposed to just inline on init ), to say nothing of logging systems, CI/CD, etc.
+ * My priority was cranking out a functional system to go "I can do this" - a more in depth conversation would have been requied if this wasn't an interview, as understanding actual use case would have been important.
+ * I didn't create issues and related PRs and the like to show standard development practice.

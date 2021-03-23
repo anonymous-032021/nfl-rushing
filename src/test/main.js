@@ -22,7 +22,7 @@ after( function( cb ){
 // an instance system that handles sessions ..
 
 const baseUrl = ( ) => {
-	return "http://" + config.host + ":" + config.port;
+	return "http://localhost:" + config.port;
 }
 
 describe( "Main", function( ){
