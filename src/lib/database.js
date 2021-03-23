@@ -1,3 +1,5 @@
+const path	= require( "path" );
+const fs	= require( "fs" );
 const async	= require( "async" );
 const config	= require( "config" );
 const sqlite3	= require( "sqlite3" );
@@ -27,8 +29,6 @@ const db = new sqlite3.Database( ":memory:" );
 // deploys to serverless and is fault tolerant with DR
 // and CI/CD and such - again, no need.
 
-const fs = require( "fs" );
-
 async.waterfall( [ ( cb ) => {
 
 	db.run( "CREATE TABLE rushing ( Player TEXT, Team TEXT, Pos TEXT, Att INTEGER, 'Att/G' NUMERIC, Yds NUMERIC, Avg NUMERIC, 'Yds/G' NUMERIC, TD INTEGER, Lng NUMERIC, Lng_td BOOLEAN, '1st' NUMERIC, '1st%' NUMERIC, '20+' NUMERIC, '40+' NUMERIC, FUM NUMERIC )", cb );
@@ -37,7 +37,7 @@ async.waterfall( [ ( cb ) => {
 	// Small amount of preprocessing to 
 	// facilitate separation of the 'T' at the
 	// end of the Lng field. 
-	async.each( JSON.parse( fs.readFileSync( "/home/robert/src/thescore/nfl-rushing/rushing.json" ) ).map( ( record ) => {
+	async.each( JSON.parse( fs.readFileSync( path.join( __dirname, "../../rushing.json" ) ) ).map( ( record ) => {
 
 		// This could be optimized for readability or function.. right now its
 		// a functional first pass, nothing more.

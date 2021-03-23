@@ -1,5 +1,6 @@
 const config	= require( "config" );
-const App	= require( "./lib/app" );
+const path	= require( "path" );
+const App	= require( path.join( __dirname, "./lib/app" ) );
 
 const app = App( config );
 

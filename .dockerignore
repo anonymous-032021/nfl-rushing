@@ -1,0 +1,4 @@
+node_modules
+*.swp
+.gitignore
+npm-debug.log
