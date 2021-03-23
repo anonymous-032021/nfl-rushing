@@ -139,24 +139,16 @@ module.exports = {
 		}
 
 		if( opts.sorters && opts.sorters.length >= 1 ){
+
+			// Yes this is blind SQL injection. Would normally
+			// do some sanity checking, fuzzing for vulnerabilities in
+			// an automated CI pipeline, as well as param the input.
 			addToQuery(" ORDER BY " + opts.sorters.map( ( orderObj ) => {
 				return '"' + orderObj.field + '" ' + orderObj.dir;
 			} ).join( "," ) );
 		}
 
-
-									// Yes this is a blind sql injection
-									// and I know it. Validation should have
-									// handled this by now if this was a real
-									// project, plus paramaterization.
-
 		_queryToUse += " LIMIT " + paginationSize + " OFFSET " + ((opts.page-1)*paginationSize);
-
-		// Run the query to get last size given the
-		// current 
-
-		//console.log( opts );
-		//console.log( _queryToUse );
 
 		async.parallel( [ ( cb ) => {
 			db.get( _lastSizeQuery, cb );
