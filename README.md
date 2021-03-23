@@ -65,3 +65,5 @@ If you have any questions regarding requirements, do not hesitate to email your 
  * My priority was cranking out a functional system to go "I can do this" - a more in depth conversation would have been requied if this wasn't an interview, as understanding actual use case would have been important.
  * I didn't create issues and related PRs and the like to show standard development practice.
  * Basic `mocha` tests exist ( `yarn run test` inside `src` ) to show that I understand building out tests.
+
+rlkmn
