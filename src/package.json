@@ -9,8 +9,6 @@
 	},
 	"dependencies": {
 		"config": "^3.3.6",
-		"crossfilter2": "^1.5.4",
-		"d3": "^6.6.0",
 		"express": "^4.17.1",
 		"superagent": "^6.1.0"
 	},

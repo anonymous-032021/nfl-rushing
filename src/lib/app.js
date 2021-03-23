@@ -6,7 +6,7 @@ const generateApp = function( config ){
 	const app = express( );
 
 	app.use( "/api", api );
-	app.use( express.static( path.join( __dirname, "../", "www" ) ) );
+	app.use( express.static( path.join( __dirname, "../", "frontend" ) ) );
 
 	return app;
 };
