@@ -1,4 +1,12 @@
 <!doctype html>
+
+<!--
+Would normally use a compiled framework that supports a bunch
+of different API requests, but since the requirements are
+only the data and interactions, and this is an interview,
+the smallest way seemed reasonable instead of overbuilding.
+-->
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -16,6 +24,11 @@
   <body>
 
 	<div class="container">
+		<div class="row">
+			<div class="col">
+					<input type="text" id='playersearch' placeholder="Player Search" onkeyup="playerSearchChange()">
+			</div>
+		</div>
 		<div id="example-table"></div>
 	</div>
 
@@ -30,6 +43,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
     -->
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 	<script>
 		var table = new Tabulator("#example-table", {
 			ajaxURL: "/api/data",
@@ -38,8 +54,20 @@
 			},
 			ajaxFiltering: true,
 			ajaxSorting: true,
-			autoColumns: true
+			autoColumns: true,
+			pagination:"remote",
+			paginationSize: 10
 		});
+
+		const playerSearchChange = function( ){
+
+			// Could put a reasonable debounce on this, or
+			// use a frontend framework that does it for us, 
+			// but again, at this point its get it working.
+			const _value = $("#playersearch").val();
+			
+			table.setFilter( "Player", "like", _value );
+		};
 	</script>
   </body>
 </html>
